@@ -1,0 +1,174 @@
+.hero {
+	position: relative;
+	@media (max-width: toEm($mobile)) {
+		padding-bottom: toRem(20);
+		background-color: $hover-black;
+	}
+	// .hero__bgr
+	&__bgr {
+		@media (min-width: toEm($mobile)) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: toRem(1280);
+			z-index: -1;
+			display: block;
+		}
+		display: none;
+	}
+	// .hero__container
+	&__container {
+		@media (min-width: toEm($mobile)) {
+			min-height: toRem(1076);
+		}
+		@include adaptiveValue(padding-top, 192, 100, $maxWidthContainer, $mobile);
+		position: relative;
+	}
+	// .hero__title
+	&__title {
+		@extend .r;
+		font-weight: 700;
+		letter-spacing: toRem(1.8);
+		color: $blue;
+		@include adaptiveValue(max-width, 600, 296, $maxWidthContainer, 320);
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	// .hero__title-span-01
+	&__title-span-01 {
+		@include adaptiveValue(font-size, 60, 30, $maxWidthContainer, 320);
+	}
+	// .hero__title-span-02
+	&__title-span-02 {
+		margin-top: toRem(-10);
+		align-self: flex-end;
+		@include adaptiveValue(font-size, 160, 90, $maxWidthContainer, 320);
+	}
+	// .hero__img-block
+	&__img-block {
+		@media (min-width: toEm(1400)) {
+			margin-top: toRem(-106);
+		}
+		position: relative;
+		z-index: 2;
+		max-width: toRem(790);
+		margin-left: auto;
+		@media (min-width: toEm(1500)) {
+			right: toRem(-50);
+		}
+		@media (max-width: toEm(1200)) {
+			margin-bottom: toRem(30);
+		}
+	}
+	// .hero__img-car
+	&__img-car {
+		position: relative;
+		aspect-ratio: 769/315;
+		max-width: toRem(769);
+		z-index: 2;
+	}
+	// .hero__img-shadow
+	&__img-shadow {
+		position: relative;
+		rotate: 0.3deg;
+		aspect-ratio: 791/171;
+		max-width: toRem(791);
+		z-index: 1;
+		margin-top: toRem(-140);
+		@media (max-width: toEm($mobile)) {
+			margin-top: calc(-50px + (-140 + 50) * ((100vw - 320px) / (767.98 - 320)));
+		}
+	}
+	// .hero__list
+	&__list {
+		max-width: toRem(366);
+		width: 100%;
+		& > *:not(:last-child) {
+			margin-bottom: toRem(4);
+		}
+		@include adaptiveValue(margin-bottom, 24, 16, $maxWidthContainer, $mobile);
+		@media (min-width: toEm(1200)) {
+			color: $white;
+			margin-top: toRem(-300);
+		}
+		@media (max-width: toEm($mobile)) {
+			color: $white;
+			max-width: 100%;
+		}
+	}
+	// .hero__item
+	&__item {
+		position: relative;
+		@media (min-width: toEm(1200)) {
+			padding-left: toRem(16);
+		}
+		&:nth-child(1) {
+			@include adaptiveValue(font-size, 22, 16, $maxWidthContainer, $mobile);
+			font-weight: 600;
+			line-height: 140%;
+			span {
+				@include adaptiveValue(font-size, 49, 30, $maxWidthContainer, $mobile);
+			}
+			@include adaptiveValue(margin-bottom, 24, 10, $maxWidthContainer, $mobile);
+			@media (min-width: toEm(1200)) {
+				&::before {
+					content: "";
+					display: block;
+					width: toRem(5);
+					height: 130%;
+					background: url("../img/icons/hero-line.svg") 0 0 / cover no-repeat;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					translate: 0 -48%;
+				}
+				&::after {
+					content: "";
+					width: toRem(5);
+					height: toRem(5);
+					background-color: $white;
+					border-radius: 50%;
+					position: absolute;
+					top: toRem(-24);
+					left: 0;
+				}
+			}
+		}
+		@media (min-width: toEm(1200)) {
+			&::before {
+				content: "";
+				width: toRem(5);
+				height: toRem(5);
+				background-color: $white;
+				border-radius: 50%;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				translate: 0 -50%;
+			}
+		}
+		font-size: toRem(16);
+		font-weight: 300;
+	}
+	@for $i from 5 through 12 {
+		$time: $i * 0.2;
+		.hero__item:nth-child(#{$i - 4}) {
+			transition-delay: #{$time}s;
+		}
+	}
+	// .hero__btn
+	&__btn {
+		@media (any-hover: hover) {
+			transition:
+				background-color 0.3s,
+				color 0.3s;
+			&:hover {
+				background-color: $hover-black;
+				color: $white;
+			}
+		}
+	}
+}

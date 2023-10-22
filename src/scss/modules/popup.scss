@@ -1,0 +1,183 @@
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background-color: rgba($color: #000000, $alpha: 0.8);
+	overflow-y: auto;
+	overflow-x: hidden;
+	filter: opacity(0);
+	visibility: hidden;
+	transition:
+		filter 0.8s,
+		visibility 0.8s;
+	z-index: 100;
+	&._open {
+		filter: opacity(1);
+		visibility: visible;
+	}
+	// .popup__body
+	&__body {
+		min-height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: toRem(30) toRem(15);
+	}
+	// .popup__content
+	&__content {
+		max-width: toRem(464);
+		margin: 0 auto;
+		background-color: #fff;
+		box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.12);
+		border-radius: 4px;
+		position: relative;
+		overflow-y: auto;
+		overflow-x: hidden;
+		filter: opacity(0);
+		visibility: hidden;
+		transform: perspective(toRem(600)) translateY(-100%) rotateX(45deg);
+		transition:
+			filter 0.8s,
+			visibility 0.8s,
+			transform 0.8s;
+		.popup._open & {
+			filter: opacity(1);
+			visibility: visible;
+			transform: perspective(toRem(600)) translateY(0) rotateX(0deg);
+		}
+	}
+	&--price &__content {
+		max-width: toRem(510);
+		width: 100%;
+	}
+	// .popup__bgr
+	&__bgr {
+		position: relative;
+		height: toRem(80);
+		@include adaptiveValue(margin-bottom, 28, 0, $maxWidthContainer, 320);
+	}
+	// .popup__close
+	&__close {
+		position: absolute;
+		@include adaptiveValue(top, 32, 12, $maxWidthContainer, $mobile);
+		@include adaptiveValue(right, 32, 12, $maxWidthContainer, $mobile);
+	}
+	&__inner {
+		@include adaptiveValue(padding-left, 60, 20, $maxWidthContainer, $mobile);
+		@include adaptiveValue(padding-right, 60, 20, $maxWidthContainer, $mobile);
+	}
+	// .popup__title
+	&__title {
+		text-align: center;
+		letter-spacing: toRem(0.55);
+		@include adaptiveValue(font-size, 22, 18, $maxWidthContainer, $mobile);
+		font-weight: 300;
+		color: $black;
+		@include adaptiveValue(margin-bottom, 32, 16, $maxWidthContainer, $mobile);
+	}
+	// .popup__form
+	&__form {
+	}
+}
+.form-popup {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(16);
+	align-items: center;
+	max-width: toRem(246);
+	margin: 0 auto;
+	font-weight: 300;
+	@include adaptiveValue(padding-bottom, 32, 20, $maxWidthContainer, $mobile);
+	// .form-popup__input
+	&__input {
+		width: 100%;
+		@include adaptiveValue(padding-left, 24, 16, $maxWidthContainer, $mobile);
+		padding-right: toRem(10);
+		@include adaptiveValue(padding-top, 16, 12, $maxWidthContainer, $mobile);
+		@include adaptiveValue(padding-bottom, 16, 12, $maxWidthContainer, $mobile);
+		font-size: toRem(14);
+		&::placeholder {
+			color: oklch(19.13% 0 0 / 70%);
+		}
+		border-radius: 4px;
+		border: toRem(2) solid oklch(19.13% 0 0);
+		&:focus {
+			outline: none;
+			&::placeholder {
+				font-size: 0;
+			}
+		}
+		&:focus-visible {
+			outline: none;
+			box-shadow: 0 0 toRem(10) $color;
+			&::placeholder {
+				font-size: 0;
+			}
+		}
+	}
+	// .form-popup__link
+	&__link {
+		color: oklch(76.04% 0 0);
+		font-size: toRem(12);
+	}
+	// .form-popup__btn
+	&__btn {
+	}
+}
+.popup {
+	&__fon {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+	&__inside {
+		position: relative;
+		@include adaptiveValue(padding-top, 32, 20, $maxWidthContainer, $mobile);
+		@include adaptiveValue(padding-bottom, 32, 20, $maxWidthContainer, $mobile);
+		width: 100%;
+	}
+	// .popup__list
+	&__list {
+		display: flex;
+		flex-direction: column;
+		background-color: oklch(16.38% 0 0 / 80%);
+		padding: toRem(8) toRem(10) toRem(15);
+	}
+	// .popup__item
+	&__item {
+		color: $white;
+		max-width: toRem(302);
+		width: 100%;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(10);
+		font-size: toRem(12);
+		padding: toRem(8) 0;
+		&:not(:first-child) {
+			border-top: toRem(1) solid oklch(100% 0 0 / 20%);
+		}
+	}
+	// .popup__name
+	&__name {
+		font-weight: 300;
+	}
+	// .popup__price
+	&__price {
+		font-weight: 700;
+		white-space: nowrap;
+	}
+	// .popup__item--big
+	&__item--big {
+		@include adaptiveValue(font-size, 16, 14, $maxWidthContainer, $mobile);
+		border-bottom: toRem(1) solid oklch(100% 0 0 / 80%);
+		border-top: toRem(1) solid oklch(100% 0 0 / 80%) !important;
+	}
+}

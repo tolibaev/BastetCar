@@ -1,0 +1,47 @@
+@charset 'UTF-8';
+@import "./modules/reset";
+@import "./modules/fonts";
+
+//$display=swap
+// @import "./modules/iconsfont";
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300;400;600;700&display=swap");
+//=============================================================================================================================================
+
+$maxWidthContainer: 1404;
+$containerPadding: 12;
+$maxWidthLayout: 1920;
+$fontFamily: "Signika";
+$color: oklch(21.66% 0.018 300.15);
+
+@import "./modules/mixins";
+
+@import "./modules/vars";
+
+//=============================================================================================================================================
+
+body {
+	font-family: $fontFamily, Arial, Helvetica, sans-serif;
+	color: $color;
+	@include adaptiveValue(font-size, 16, 14, $maxWidthContainer, $mobile);
+}
+
+@import "./modules/animations";
+
+@import "./modules/containers";
+
+@import "./modules/base";
+@import "./modules/fragments";
+@import "./modules/popup";
+@import "./modules/dropdown";
+//=============================================================================================================================================
+@import "./blocks/header";
+
+@import "./blocks/hero";
+@import "./blocks/slider";
+@import "./blocks/select";
+@import "./blocks/steps";
+@import "./blocks/calc";
+@import "./blocks/assort";
+@import "./blocks/buisness";
+
+@import "./blocks/footer";

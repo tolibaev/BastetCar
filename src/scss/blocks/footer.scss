@@ -1,0 +1,206 @@
+.footer {
+	@media (min-width: toEm($mobile)) {
+		padding-top: toRem(150);
+		@media (max-width: toEm($tablet)) {
+			padding-top: toRem(180);
+		}
+	}
+	padding-top: toRem(30);
+	min-height: toRem(510);
+	position: relative;
+	color: $white;
+	@media (max-width: toEm($mobile)) {
+		background-color: $color;
+	}
+	// .footer__bgr
+	&__bgr {
+		@media (min-width: toEm($mobile)) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			display: block;
+		}
+		display: none;
+	}
+	// .footer__container
+	&__container {
+	}
+	// .footer__social-row
+	&__social-row {
+		display: flex;
+		@media (min-width: toEm($tablet)) {
+			justify-content: flex-end;
+		}
+		align-items: center;
+		@include adaptiveValue(gap, 46, 20, $maxWidthContainer, $mobile);
+		margin-bottom: toRem(28);
+		@media (max-width: toEm($tablet)) {
+			margin-top: toRem(20);
+		}
+	}
+	// .footer__social-link
+	&__social-link {
+	}
+	// .footer__links-list
+	&__links-list {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(16);
+		@media (max-width: toEm($mobileSmall)) {
+			margin-bottom: toRem(30);
+		}
+	}
+	// .footer__link
+	&__link {
+		@include adaptiveValue(font-size, 18, 22, $tablet, 320);
+		@media (any-hover: hover) {
+			transition: color 0.3s;
+			position: relative;
+			&::before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: toRem(1);
+				background-color: #fff;
+				transform-origin: right;
+				position: absolute;
+
+				bottom: toRem(-4);
+
+				left: 50%;
+				transform: translateX(-50%) scaleX(0);
+				transition: transform 0.3s;
+			}
+			&:hover::before {
+				transform: translateX(-50%) scaleX(1);
+				transform-origin: left;
+			}
+		}
+	}
+	// .footer__info-list
+	&__info-list {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(16);
+		& > li {
+			padding-left: toRem(48);
+			position: relative;
+			line-height: toRem(30);
+			&:nth-child(1) {
+				background: url("../img/icons/phone.svg") left / 30px no-repeat;
+			}
+			&:nth-child(2) {
+				background: url("../img/icons/pin.svg") left / 30px no-repeat;
+			}
+			&:nth-child(3) {
+				background: url("../img/icons/mail.svg") left / 30px no-repeat;
+			}
+		}
+	}
+	// .footer__phones
+	&__phones {
+	}
+	// .footer__bottom
+	&__bottom {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(20);
+		padding-bottom: toRem(12);
+	}
+	// .footer__copy
+	&__copy {
+		display: flex;
+		align-items: center;
+		gap: toRem(8);
+		font-weight: 300;
+	}
+
+	&__phone {
+	}
+}
+.row-footer {
+	@media (min-width: toEm($mobileSmall)) {
+		display: flex;
+		align-items: flex-start;
+		@include adaptiveValue(gap, 240, 80, $maxWidthContainer, $mobile);
+		@media (max-width: toEm($mobile)) {
+			justify-content: space-between;
+		}
+	}
+	@media (max-width: toEm($mobile)) {
+		margin-bottom: toRem(30);
+	}
+}
+.phones {
+}
+.form-footer {
+	@media (min-width: toEm($mobile)) {
+		margin-top: toRem(-30);
+	}
+	display: flex;
+	flex-direction: column;
+	@media (min-width: toEm($mobile)) {
+		align-items: flex-end;
+		padding-right: toRem(110);
+	}
+	@include adaptiveValue(margin-bottom, 42, 20, $maxWidthContainer, $mobile);
+	// .form-footer__title
+	&__title {
+		font-size: toRem(24);
+		margin-bottom: toRem(16);
+	}
+	// .form-footer__row
+	&__row {
+		display: flex;
+		align-items: center;
+		gap: toRem(8);
+		@media (max-width: toEm($mobileSmall)) {
+			flex-direction: column;
+		}
+	}
+	// .form-footer__input
+	&__input {
+		border-radius: toRem(4);
+		border: toRem(2) solid $white;
+		@include adaptiveValue(padding-left, 24, 16, $maxWidthContainer, $mobile);
+		@include adaptiveValue(padding-right, 24, 16, $maxWidthContainer, $mobile);
+		@include adaptiveValue(padding-top, 16, 10, $maxWidthContainer, $mobile);
+		@include adaptiveValue(padding-bottom, 16, 10, $maxWidthContainer, $mobile);
+		&::placeholder {
+			color: rgba($color: #fff, $alpha: 0.5);
+			transition: font-size 0.3s;
+		}
+		&:focus::placeholder {
+			font-size: toRem(0);
+		}
+		@media (max-width: toEm($mobile)) {
+			flex-grow: 1;
+		}
+		@media (max-width: toEm($mobileSmall)) {
+			width: 100%;
+		}
+		&._error {
+			box-shadow: 0 0 toRem(10) red;
+		}
+		&:focus {
+			outline: none;
+		}
+		&:focus-visible {
+			outline: none;
+			box-shadow: 0 0 toRem(10) #fff;
+		}
+	}
+	// .form-footer__btn
+	&__btn {
+		color: $color;
+		@media (max-width: toEm($mobile)) {
+			flex-grow: 1;
+		}
+		@media (max-width: toEm($mobileSmall)) {
+			width: 100%;
+		}
+	}
+}

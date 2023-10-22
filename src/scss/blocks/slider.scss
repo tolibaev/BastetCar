@@ -1,0 +1,125 @@
+.slider {
+	padding-top: toRem(30);
+	@include adaptiveValue(padding-bottom, 200, 30, $maxWidthContainer, $mobile);
+	// .slider__container
+	&__container {
+	}
+	// .slider__title
+	&__title {
+		text-align: center;
+		@include adaptiveValue(margin-bottom, 48, 24, $maxWidthContainer, $mobile);
+	}
+	// .slider__item
+	&__item {
+		@include adaptiveValue(margin-bottom, 54, 30, $maxWidthContainer, $mobile);
+	}
+	// .slider__slide
+	&__slide {
+	}
+	// .slider__pagination
+	&__pagination {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: toRem(12);
+		max-width: toRem(220);
+		margin: 0 auto;
+		overflow: hidden;
+		span {
+			flex-shrink: 0;
+			opacity: 1;
+			display: inline-block;
+			background-color: $color;
+			border-radius: 0;
+			width: toRem(26);
+			height: toRem(1);
+			transition:
+				height 0.3s,
+				border-radius 0.3s;
+			&.swiper-pagination-bullet-active {
+				height: toRem(5);
+				border-radius: toRem(10);
+			}
+		}
+	}
+	.swiper {
+		padding: toRem(30);
+		margin: toRem(-30);
+	}
+	.swiper-slide {
+		max-width: toRem(509);
+		width: 100%;
+	}
+}
+.swiper-wrapper {
+}
+.slide {
+	max-width: toRem(509);
+	@include adaptiveValue(padding-top, 32, 20, $maxWidthContainer, $mobile);
+	padding-left: toRem(10);
+	padding-right: toRem(10);
+	@media (min-width: toEm($tablet)) {
+		padding-bottom: toRem(8);
+	}
+	border-radius: toRem(4);
+	background: $white;
+	color: $white;
+	box-shadow: 0 0 toRem(10) $hover-black;
+	// .slide__img
+	&__img {
+		position: relative;
+		aspect-ratio: 470/209;
+		max-width: toRem(470);
+		width: 100%;
+		margin: 0 auto;
+		img {
+			object-fit: fill;
+		}
+	}
+	// .slide__content
+	&__content {
+		margin-left: toRem(-10);
+		margin-right: toRem(-10);
+		position: relative;
+		z-index: 2;
+		margin-top: toRem(-50);
+		background-color: oklch(19.13% 0 0 / 45%);
+		padding-top: toRem(18);
+		padding-left: toRem(18);
+		padding-right: toRem(18);
+		padding-bottom: toRem(13);
+	}
+	&__top {
+		& > *:not(:last-child) {
+			margin-bottom: toRem(4);
+		}
+		margin-bottom: toRem(14);
+	}
+	// .slide__title
+	&__title {
+		@include adaptiveValue(font-size, 24, 20, $maxWidthContainer, $mobile);
+		font-weight: 700;
+	}
+	// .slide__price
+	&__price {
+		@include adaptiveValue(font-size, 20, 16, $maxWidthContainer, $mobile);
+	}
+	// .slide__link
+	&__link {
+		font-size: toRem(14);
+		font-weight: 300;
+		text-decoration: underline;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	// .slide__descr
+	&__descr {
+		font-size: toRem(12);
+		font-weight: 300;
+	}
+}

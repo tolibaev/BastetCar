@@ -1,0 +1,103 @@
+.calc {
+	@include adaptiveValue(margin-top, 200, 30, $maxWidthLayout, $mobile);
+	@media (min-width: toEm(1200)) {
+		min-height: toRem(1148);
+	}
+	position: relative;
+	@media (max-width: toEm(1200)) {
+		background-color: $color;
+	}
+	padding: toRem(20) 0;
+	// .calc__bgr
+	&__bgr {
+		@media (min-width: toEm(1200)) {
+			position: absolute;
+			top: -16%;
+			// translate: 0 30%;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+		display: none;
+	}
+	// .calc__container
+	&__container {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		@media (min-width: toEm(1600)) {
+			justify-content: space-between;
+		}
+		column-gap: toRem(30);
+		align-items: center;
+
+		@media (min-width: toEm($mobile)) {
+			max-width: toRem(1325);
+			margin: 0;
+		}
+	}
+	// .calc__item
+	&__item {
+		@media (min-width: toEm($mobile)) {
+			position: relative;
+			@include adaptiveValue(flex-basis, 770, 400, $maxWidthLayout, $mobile);
+			@include adaptiveValue(height, 770, 400, $maxWidthLayout, $mobile);
+			img {
+				object-fit: contain;
+			}
+			margin-left: toRem(-120);
+			@media (max-width: toEm($pc)) {
+				margin-left: calc(-70px + (-120 + 70) * ((100vw - 767.98px) / (#{$pc} - 767.98)));
+			}
+			display: block;
+		}
+		display: none;
+	}
+	// .calc__content
+	&__content {
+		color: $white;
+		@media (min-width: toEm($mobile)) {
+			flex-basis: toRem(430);
+		}
+	}
+	// .calc__title
+	&__title {
+		@include adaptiveValue(margin-bottom, 48, 20, $maxWidthContainer, $mobile);
+	}
+	// .calc__body
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: toRem(24);
+	}
+	// .calc__text
+	&__text {
+		@include adaptiveValue(font-size, 20, 18, $maxWidthContainer, $mobile);
+		font-weight: 700;
+		line-height: 140%;
+		transition-delay: 0.2s;
+	}
+	// .calc__description
+	&__description {
+		font-weight: 300;
+		line-height: 140%;
+		transition-delay: 0.4s;
+	}
+	// .calc__btn
+	&__btn {
+		transition-delay: 0.6s;
+		color: $color;
+		box-shadow: none;
+		@media (any-hover: hover) {
+			transition:
+				background-color 0.3s,
+				color 0.3s;
+			&:hover {
+				background-color: $blue;
+				color: $white;
+			}
+		}
+	}
+}

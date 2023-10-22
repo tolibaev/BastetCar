@@ -1,0 +1,51 @@
+.buisness {
+	padding-top: toRem(30);
+	@include adaptiveValue(padding-bottom, 200, 30, $maxWidthContainer, $mobile);
+	// .buisness__container
+	&__container {
+	}
+	// .buisness__title
+	&__title {
+		@include adaptiveValue(margin-bottom, 48, 10, $maxWidthContainer, $mobile);
+		text-transform: uppercase;
+	}
+	// .buisness__row
+	&__row {
+		@media (min-width: toEm($tablet)) {
+			display: flex;
+			@include adaptiveValue(column-gap, 65, 20, $maxWidthContainer, $mobile);
+			@media (max-width: toEm($pc)) {
+				align-items: center;
+			}
+		}
+		&:not(:last-child) {
+			margin-bottom: toRem(30);
+		}
+	}
+	// .buisness__name
+	&__name {
+		@include adaptiveValue(font-size, 184, 66, $maxWidthContainer, 320);
+		font-weight: 700;
+		letter-spacing: toRem(0.55);
+	}
+	// .buisness__text
+	&__text {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		@include adaptiveValue(gap, 24, 10, $maxWidthContainer, $mobile);
+		@include adaptiveValue(font-size, 20, 16, $maxWidthContainer, $mobile);
+		font-weight: 300;
+		line-height: 140%;
+		flex-basis: toRem(500);
+	}
+	// .buisness__btn
+	&__btn {
+		@media (any-hover: hover) {
+			transition: background-color 0.3s;
+			&:hover {
+				background-color: $hover-black;
+			}
+		}
+	}
+}

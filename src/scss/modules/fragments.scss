@@ -1,0 +1,37 @@
+.title {
+	font-family: Raydis, Arial, Helvetica, sans-serif;
+	@include adaptiveValue(font-size, 30, 26, $maxWidthContainer, $mobile);
+	font-weight: 700;
+	&--white {
+		color: $white;
+	}
+}
+.btn {
+	display: inline-block;
+	border-radius: toRem(4);
+	background: $white;
+	box-shadow: toRem(11) toRem(13) toRem(28) 0px oklch(0% 0 0 / 30%);
+	@include adaptiveValue(padding-left, 24, 16, $maxWidthContainer, $mobile);
+	@include adaptiveValue(padding-right, 24, 16, $maxWidthContainer, $mobile);
+	@include adaptiveValue(padding-top, 16, 10, $maxWidthContainer, $mobile);
+	@include adaptiveValue(padding-bottom, 16, 10, $maxWidthContainer, $mobile);
+	&--green {
+		background-color: $blue;
+		color: $white;
+	}
+}
+.r {
+	font-family: Raydis, Arial, Helvetica, sans-serif;
+}
+._stroke {
+	@extend .r;
+	color: oklch(67.89% 0.11 192.57);
+	-webkit-text-stroke: toRem(3) oklch(67.89% 0.11 192.57);
+	@media (max-width: toEm($tablet)) {
+		-webkit-text-stroke: toRem(2) oklch(67.89% 0.11 192.57);
+	}
+	@media (max-width: toEm($mobile)) {
+		-webkit-text-stroke: toRem(1) oklch(67.89% 0.11 192.57);
+	}
+	-webkit-text-fill-color: transparent;
+}

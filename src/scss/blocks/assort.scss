@@ -1,0 +1,123 @@
+.assort {
+	padding-top: toRem(30);
+	@include adaptiveValue(padding-bottom, 200, 30, $maxWidthContainer, $mobile);
+	// .assort__container
+	&__container {
+		@media (min-width: toEm($tablet)) {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			@include adaptiveValue(column-gap, 52, 30, $maxWidthContainer, $mobile);
+		}
+	}
+	// .assort__content
+	&__content {
+		@media (min-width: toEm($tablet)) {
+			flex-basis: toRem(554);
+		}
+		@media (max-width: toEm($tablet)) {
+			margin-bottom: toRem(30);
+		}
+	}
+	// .assort__title
+	&__title {
+		@include adaptiveValue(margin-bottom, 48, 16, $maxWidthContainer, $mobile);
+	}
+	// .assort__text
+	&__text {
+		@media (min-width: toEm($tablet)) {
+			max-width: toRem(490);
+		}
+		display: flex;
+		flex-direction: column;
+		row-gap: toRem(24);
+		@include adaptiveValue(font-size, 20, 16, $maxWidthContainer, $mobile);
+		p:nth-child(1) {
+			line-height: 140%;
+			font-weight: 300;
+		}
+		p:nth-child(2),
+		p:nth-child(3) {
+			line-height: 150%;
+		}
+		p:nth-child(3) {
+			font-weight: 300;
+		}
+	}
+	// .assort__item
+	&__item {
+		flex-basis: toRem(790);
+	}
+	// .assort__price
+	&__price {
+		white-space: nowrap;
+		@include adaptiveValue(font-size, 78, 34, $maxWidthContainer, 320);
+		font-weight: 700;
+		line-height: 73.2%;
+		@media (min-width: toEm($mobile)) {
+			text-align: right;
+		}
+		@include adaptiveValue(margin-bottom, 74, 40, $maxWidthContainer, $mobile);
+	}
+	// .assort__link
+	&__link {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding-bottom: toRem(10);
+		position: relative;
+		&::before {
+			content: "";
+			display: block;
+			width: 120%;
+			height: toRem(7);
+			@media (max-width: toEm($mobile)) {
+				height: toRem(6);
+			}
+			background: url("../img/icons/assort-line.svg") 0 0 / cover no-repeat;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			transition:
+				width 0.3s,
+				height 0.3s;
+		}
+		@media (any-hover: hover) {
+			&:hover::before {
+				width: 140%;
+				height: toRem(8);
+			}
+		}
+	}
+	// .assort__img-block
+	&__img-block {
+		@media (min-width: toEm($mobile)) {
+			min-height: toRem(320);
+		}
+		position: relative;
+		max-width: toRem(790);
+	}
+	// .assort__car
+	&__car {
+		position: relative;
+		aspect-ratio: 636/303;
+		max-width: toRem(636);
+		margin: 0 auto;
+	}
+	// .assort__shadow
+	&__shadow {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		@media (max-width: toEm($pc)) {
+			bottom: calc(20px - 20 * ((100vw - #{$tablet}px) / (#{$pc} - #{$tablet})));
+		}
+		@media (max-width: toEm($mobile)) {
+			bottom: toRem(0);
+		}
+		z-index: -1;
+		aspect-ratio: 790/170;
+		max-width: toRem(790);
+		width: 100%;
+	}
+}
